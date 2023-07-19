@@ -1,0 +1,16 @@
+# Service name
+service: serverless-python-test
+# Framework version constraint (semver constraint): '3', '^2.33'
+frameworkVersion: '3'
+#Provider Name
+provider:
+  name: aws
+  runtime: python3.10
+  region: ap-northeast-1
+  stage: dev
+plugins:
+  - serverless-python-requirements
+functions:
+  testServerlessPython:
+    handler: handler.main
+      
