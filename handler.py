@@ -23,10 +23,13 @@ def main(event, context):
             data = response['Body'].read().decode('utf-8').splitlines()
             records = csv.reader(data) #4
             headers = next(records) #5
-            print('headers: %s' % (headers))
-            for eachRecord in records:
-                print(eachRecord)
-            mailer()
+            # print('headers: %s' % (headers))
+            # for eachRecord in records:
+            #     print(eachRecord)
+            dictionary_result = [dict(zip(headers,i)) for i in records]
+            print(">>Result",dictionary_result)
+            # sending mail function
+            # mailer()
             return response['ContentType']
         except Exception as e:
             print(e)
